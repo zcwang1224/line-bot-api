@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  server_api:
+    build:
+      context: .
+      dockerfile: ApiDockerfile
+    container_name: server_api
+    ports:
+      - "8888:8087"
+    volumes:
+      - .:/app
+

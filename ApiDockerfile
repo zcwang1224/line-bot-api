@@ -1,0 +1,14 @@
+FROM python:3.10.12
+
+WORKDIR /app
+
+COPY ./code/requirements.txt .
+
+# 更新pip
+RUN python3 -m pip install --upgrade pip
+
+# 安裝Python套件
+RUN python3 -m pip install --no-cache-dir -r requirements.txt
+
+# 啟動Server
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "8087"]
