@@ -254,7 +254,7 @@ class Accomo(Base, BaseUtil):
             query = (
                 session.query(cls, distance_expr.label('distance'))
                 .filter(distance_expr <= Constant.GEO_DISTANCE_LIMIT)  # 只拿GEO_DISTANCE_LIMIT公里內
-                .order_by(cls.rate.asc())  # 評分最高的排前面
+                .order_by(cls.rate.desc())  # 評分最高的排前面
             )
             
             # 欄位篩選
