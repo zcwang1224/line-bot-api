@@ -155,7 +155,7 @@ def generate_rate_template(score: float, comm: str):
     decimal_part, integer_part = math.modf(score)
     full_count = int(integer_part)
     half_count = 1 if decimal_part > 0 else 0
-    empty_count = int(10 - (full_count + half_count))
+    empty_count = int(5 - (full_count + half_count))
     
     for i in range(full_count):
         new_template["contents"].append(
