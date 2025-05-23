@@ -666,7 +666,7 @@ async def recieve_postback_handler(data, line_bot_api: LineBotApi, db_main_sessi
             
             # region 將搜尋結果紀錄至MongoDB
             mongodb_user_results_list = []
-            
+            foods: list[Food]
             for food in foods:
                 
                 # region Point 轉換成經緯度
@@ -685,8 +685,8 @@ async def recieve_postback_handler(data, line_bot_api: LineBotApi, db_main_sessi
                         "s_type": LineBotMenuSelection.getDescriptionByCode(postback_data.menu_type),
                         "s_cate": PostbackTriggerType.getDescriptionByCode(postback_data.main_type),
                         "s_detail": PostbackTriggerType.getDescriptionByCode(postback_data.sub_type),
-                        "s_type_url": "",
-                        "s_detail_url": "",
+                        "s_type_url": postback_data.s_type_url,
+                        "s_detail_url": food.gmaps_url,
                         "record_id": food.food_id,
                         "lat": lat,
                         "lng": lng,
@@ -892,7 +892,7 @@ async def recieve_postback_handler(data, line_bot_api: LineBotApi, db_main_sessi
             
             # region 將搜尋結果紀錄至MongoDB
             mongodb_user_results_list = []
-            
+            spots: list[Spot]
             for spot in spots:
                 
                 # region Point 轉換成經緯度
@@ -911,8 +911,8 @@ async def recieve_postback_handler(data, line_bot_api: LineBotApi, db_main_sessi
                         "s_type": LineBotMenuSelection.getDescriptionByCode(postback_data.menu_type),
                         "s_cate": PostbackTriggerType.getDescriptionByCode(postback_data.main_type),
                         "s_detail": PostbackTriggerType.getDescriptionByCode(postback_data.sub_type),
-                        "s_type_url": "",
-                        "s_detail_url": "",
+                        "s_type_url": postback_data.s_type_url,
+                        "s_detail_url": spot.gmaps_url,
                         "record_id": spot.spot_id,
                         "lat": lat,
                         "lng": lng,
@@ -1135,8 +1135,8 @@ async def recieve_postback_handler(data, line_bot_api: LineBotApi, db_main_sessi
                         "s_type": LineBotMenuSelection.getDescriptionByCode(postback_data.menu_type),
                         "s_cate": PostbackTriggerType.getDescriptionByCode(postback_data.main_type),
                         "s_detail": PostbackTriggerType.getDescriptionByCode(postback_data.sub_type),
-                        "s_type_url": "",
-                        "s_detail_url": "",
+                        "s_type_url": postback_data.s_type_url,
+                        "s_detail_url": accomo.b_url,
                         "record_id": accomo.accomo_id,
                         "lat": lat,
                         "lng": lng,
@@ -1289,3 +1289,4 @@ async def get_available_parent_list(
         
     return RedirectResponse(redirect_url)
 # endregion Line Bot Click Link API
+

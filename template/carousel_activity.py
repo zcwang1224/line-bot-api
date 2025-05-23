@@ -158,6 +158,7 @@ def generate_event_template(event: Event, postback_data: PostbackDataModel):
     postback_data.lat = lng
     postback_data.lng = lat
     postback_data.address = event.address
+    postback_data.s_type_url = event.accu_url
     # endregion Point 轉換成經緯度
     
     

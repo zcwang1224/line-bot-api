@@ -158,6 +158,7 @@ def generate_exhibit_template(exhibit: Exhibit, postback_data: PostbackDataModel
     postback_data.lat = lng
     postback_data.lng = lat
     postback_data.address = exhibit.address
+    postback_data.s_type_url = exhibit.klook_url
     # endregion Point 轉換成經緯度
     
     

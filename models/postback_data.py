@@ -14,6 +14,7 @@ class PostbackDataModel(BaseModel):
     sub_type: Any = Field(None, title="")
     trigger_type: Any = Field(None, title="")
     address: Any = Field(None, title="")
+    s_type_url: Any = Field(None, title="")
     
 # endregion Line Bot Postback Data
 
