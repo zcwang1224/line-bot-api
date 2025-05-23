@@ -193,8 +193,8 @@ def generate_food_template(food: Food, postback_data: PostbackDataModel, user_id
     
     new_template["hero"]["url"] = food.pic_url
     
-    link = f"{global_setting.ngrok_url}/line_bot/redirect/{user_id}?main_type={postback_data.main_type}&item_id={food.food_id}&redirect_url={food.gmaps_url}"
-
+    link = f"{global_setting.ngrok_url}/line_bot/redirect/{user_id}?main_type={postback_data.main_type}&item_id={food.food_id}&redirect_url={urllib.parse.quote(food.gmaps_url)}"
+    print(food.gmaps_url)
     new_template["hero"]["action"]["uri"] = link
     new_template["body"]["contents"][0]["text"] = food.f_name
     new_template["body"]["contents"][0] = generate_food_title_template(food.f_name)

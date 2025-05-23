@@ -191,7 +191,7 @@ def generate_spot_template(spot: Spot, postback_data: PostbackDataModel, user_id
     
     new_template["hero"]["url"] = spot.pic_url
     
-    link = f"{global_setting.ngrok_url}/line_bot/redirect/{user_id}?main_type={postback_data.main_type}&item_id={spot.spot_id}&redirect_url={spot.gmaps_url}"
+    link = f"{global_setting.ngrok_url}/line_bot/redirect/{user_id}?main_type={postback_data.main_type}&item_id={spot.spot_id}&redirect_url={urllib.parse.quote(spot.gmaps_url)}"
 
     new_template["hero"]["action"]["uri"] = link
     new_template["body"]["contents"][0]["text"] = spot.s_name

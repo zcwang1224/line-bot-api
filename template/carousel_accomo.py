@@ -193,7 +193,7 @@ def generate_accomo_template(accomo: Accomo, postback_data: PostbackDataModel, u
     
     new_template["hero"]["url"] = accomo.pic_url
     
-    link = f"{global_setting.ngrok_url}/line_bot/redirect/{user_id}?main_type={postback_data.main_type}&item_id={accomo.accomo_id}&redirect_url={accomo.b_url}"
+    link = f"{global_setting.ngrok_url}/line_bot/redirect/{user_id}?main_type={postback_data.main_type}&item_id={accomo.accomo_id}&redirect_url={urllib.parse.quote(accomo.b_url)}"
 
     new_template["hero"]["action"]["uri"] = link
     new_template["body"]["contents"][0]["text"] = accomo.a_name
