@@ -204,10 +204,10 @@ def generate_accomo_template(accomo: Accomo, postback_data: PostbackDataModel, u
 			generate_rate_template(accomo.rate, accomo.comm)
 		)
     
-    if accomo.address:
-        new_template["body"]["contents"][1]["contents"].append(
-         	generate_accomo_detail_template("地址", accomo.address)
-        ) 
+    # if accomo.address:
+    #     new_template["body"]["contents"][1]["contents"].append(
+    #      	generate_accomo_detail_template("地址", accomo.address)
+    #     ) 
         
     if accomo.county:
         new_template["body"]["contents"][1]["contents"].append(
