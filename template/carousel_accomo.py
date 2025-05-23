@@ -207,7 +207,22 @@ def generate_accomo_template(accomo: Accomo, postback_data: PostbackDataModel, u
     if accomo.address:
         new_template["body"]["contents"][1]["contents"].append(
          	generate_accomo_detail_template("地址", accomo.address)
-        )           
+        ) 
+        
+    if accomo.county:
+        new_template["body"]["contents"][1]["contents"].append(
+         	generate_accomo_detail_template("縣市", accomo.county)
+        )
+        
+    if accomo.area:
+        new_template["body"]["contents"][1]["contents"].append(
+         	generate_accomo_detail_template("鄉鎮區", accomo.area)
+        )
+        
+    if accomo.fac:
+        new_template["body"]["contents"][1]["contents"].append(
+         	generate_accomo_detail_template("設施", accomo.fac)
+        )                                   
 
     return new_template
  

@@ -95,11 +95,11 @@ async def update_line_bot_webhook_url(host:str):
     
     headers = {
         'Authorization': f'Bearer {system_config.line_access_token}',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
     }
 
     payload = {
-        'endpoint': f"{host}/line_bot/call"
+        'endpoint': f"{host}/line_bot/call",
     }
 
     requests.put(url, headers=headers, json=payload)

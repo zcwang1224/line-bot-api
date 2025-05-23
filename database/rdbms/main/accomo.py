@@ -32,6 +32,7 @@ class Accomo(Base, BaseUtil):
     ac_type = Column(String(3), comment="類型")
     comm = Column(Integer, comment="評論數")
     area = Column(String(3), comment="鄉鎮區")
+    fac = Column(String(100), comment="設施")
     create_time = Column(DateTime, nullable=False, server_default=func.now())
     update_time = Column(DateTime, server_default=text('NULL ON UPDATE CURRENT_TIMESTAMP'))
     
